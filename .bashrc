@@ -14,3 +14,18 @@ PS1+="\[${green}\]\w"; # working dir full path
 PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` and reset color
 export PS1;
+
+function shut_all_prcs() {
+for pid in `ps -ux | grep "$1"| awk '{print $2}'`; do kill -9 $pid; done
+}
+
+alias gs='git status'
+alias gpu='git push -u origin'
+alias ga='git add'
+alias gc='git checkout'
+alias gcm='git commit -m'
+alias gb='git branch'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias shut="shut_all_prcs" # takes a process name as parameter
+
