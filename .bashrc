@@ -31,6 +31,10 @@ alias gb='git branch'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias shut="shut_all_prcs" # takes a process name as parameter
+alias grep='grep —color=auto'
+alias l.='ls -d .* —color=auto'
+alias ll='ls -l —color=auto'
+alias ls='ls —color=auto'
 
 # docker aliases
 alias d='docker '
