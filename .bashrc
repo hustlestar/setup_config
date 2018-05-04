@@ -19,13 +19,22 @@ function shut_all_prcs() {
 for pid in `ps -ux | grep "$1"| awk '{print $2}'`; do kill -9 $pid; done
 }
 
+# git aliases
 alias gs='git status'
 alias gpu='git push -u origin'
 alias ga='git add'
 alias gc='git checkout'
 alias gcm='git commit -m'
 alias gb='git branch'
+
+# linux aliases
 alias ..='cd ..'
 alias ...='cd ../..'
 alias shut="shut_all_prcs" # takes a process name as parameter
 
+# docker aliases
+alias d='docker '
+alias c=' container '
+alias b=' build '
+alias i=' image '
+alias r=' run '
