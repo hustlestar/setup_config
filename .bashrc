@@ -15,10 +15,6 @@ PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` and reset color
 export PS1;
 
-function shut_all_prcs() {
-for pid in `ps -ux | grep "$1"| awk '{print $2}'`; do kill -9 $pid; done
-}
-
 # git aliases
 alias gs='git status'
 alias gpu='git push -u origin'
@@ -26,10 +22,17 @@ alias ga='git add'
 alias gc='git checkout'
 alias gcm='git commit -m'
 alias gb='git branch'
+alias gp='git pull'
 
 # linux aliases
 alias ..='cd ..'
 alias ...='cd ../..'
+alias hist="history | tail -n 30" # last 30 commands in history
+
+function shut_all_prcs() {
+    for pid in `ps -ux | grep -v color=auto | grep "$1"| awk '{print $2}'`; do kill -9 $pid; done
+    echo "Killed all " $1 " processes"
+}
 alias shut="shut_all_prcs" # takes a process name as parameter
 alias grep='grep --color=auto'
 alias l.='ls -d .* --color=auto'
