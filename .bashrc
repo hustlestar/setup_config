@@ -1,18 +1,49 @@
-cyan=$(tput setaf 6);
-yellow=$(tput setaf 3);
-green=$(tput setaf 2);
-white=$(tput setaf 7);
-bold=$(tput bold);
-reset=$(tput sgr0);
+source ./.git_prompt
 
-PS1="\[${bold}\]\n";
-PS1+="\[${cyan}\]\u"; #username
-PS1+="\[${white}\] at ";
-PS1+="\[${yellow}\]\h"; #host
-PS1+="\[${white}\] in ";
-PS1+="\[${green}\]\w"; # working dir full path
+if tput setaf 1 &> /dev/null; then
+    tput sgr0
+    BLACK=$(tput setaf 0)
+    if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
+        RED=$(tput setaf 160)
+        GREEN=$(tput setaf 118)
+        YELLOW=$(tput setaf 226)
+        BLUE=$(tput setaf 27)
+        PURPLE=$(tput setaf 141)
+        CYAN=$(tput setaf 51)
+        WHITE=$(tput setaf 255)
+    else
+        RED=$(tput setaf 1)
+        GREEN=$(tput setaf 2)
+        YELLOW=$(tput setaf 3)
+        BLUE=$(tput setaf 4)
+        PURPLE=$(tput setaf 5)
+        CYAN=$(tput setaf 6)
+        WHITE=$(tput setaf 7)
+    fi
+    BOLD=$(tput bold)
+    RESET=$(tput sgr0)
+else
+    RESET="\[\033[0m\]"
+    # ASCII Oct Regular Colors
+    BLACK="\[\033[0;30m\]"        # Black
+    RED="\[\033[0;31m\]"          # Red
+    GREEN="\[\033[0;32m\]"        # Green
+    YELLOW="\[\033[0;33m\]"       # Yellow
+    BLUE="\[\033[0;34m\]"         # Blue
+    PURPLE="\[\033[0;35m\]"       # Purple
+    CYAN="\[\033[0;36m\]"         # Cyan
+    WHITE="\[\033[0;37m\]"        # White
+fi
+
+PS1="\[${BOLD}\]\n";
+PS1+="\[${CYAN}\]\u"; #username
+PS1+="\[${WHITE}\] at ";
+PS1+="\[${YELLOW}\]\h"; #host
+PS1+="\[${WHITE}\] in ";
+PS1+="\[${GREEN}\]\w"; # working dir full path
+PS1+="\$(prompt_git \"\[${WHITE}\] on \[${BLUE}\]\" \"\[${BLUE}\]\")"; # Git repository details
 PS1+="\n";
-PS1+="\[${white}\]\$ \[${reset}\]"; # `$` and reset color
+PS1+="\[${WHITE}\]\$ \[${RESET}\]"; # `$` and reset color
 export PS1;
 
 # git aliases
