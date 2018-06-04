@@ -1,4 +1,4 @@
-source ./.git_prompt
+source ~/.git_prompt
 
 if tput setaf 1 &> /dev/null; then
     tput sgr0
@@ -34,15 +34,15 @@ else
     CYAN="\[\033[0;36m\]"         # Cyan
     WHITE="\[\033[0;37m\]"        # White
 fi
-
-PS1="\[${BOLD}\]\n";
+# \012 is \n in ASCII, trick for Windows
+PS1="\[${BOLD}\]\012";
 PS1+="\[${CYAN}\]\u"; #username
 PS1+="\[${WHITE}\] at ";
 PS1+="\[${YELLOW}\]\h"; #host
 PS1+="\[${WHITE}\] in ";
 PS1+="\[${GREEN}\]\w"; # working dir full path
 PS1+="\$(prompt_git \"\[${WHITE}\] on \[${BLUE}\]\" \"\[${BLUE}\]\")"; # Git repository details
-PS1+="\n";
+PS1+="\012";
 PS1+="\[${WHITE}\]\$ \[${RESET}\]"; # `$` and reset color
 export PS1;
 
