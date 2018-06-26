@@ -58,6 +58,7 @@ alias gp='git pull'
 # linux aliases
 alias ..='cd ..'
 alias ...='cd ../..'
+export HISTTIMEFORMAT="%d/%m/%y %T " # to show datetime in history command
 alias hist="history | tail -n 30" # last 30 commands in history
 
 function shut_all_prcs() {
