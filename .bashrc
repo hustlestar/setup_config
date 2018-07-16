@@ -46,6 +46,13 @@ PS1+="\012";
 PS1+="\[${WHITE}\]\$ \[${RESET}\]"; # `$` and reset color
 export PS1;
 
+# Git branch bash completion
+if [ -f ~/.git-completion.bash ]; then
+  source ~/.git-completion.bash
+  # Add git completion to aliases
+  __git_complete gc _git_checkout
+fi
+
 # git aliases
 alias gs='git status'
 alias gpu='git push -u origin'
