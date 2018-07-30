@@ -67,6 +67,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 export HISTTIMEFORMAT="%d/%m/%y %T " # to show datetime in history command
 alias hist="history | tail -n 30" # last 30 commands in history
+alias untar="tar -xvzf" # extracts .tgz archive
 
 function shut_all_prcs() {
     for pid in `ps -ux | grep -v color=auto | grep "$1"| awk '{print $2}'`; do kill -9 $pid; done
