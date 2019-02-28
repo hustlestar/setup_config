@@ -90,11 +90,23 @@ alias ll='ls -l --color=auto'
 alias ls='ls --color=auto'
 
 # docker aliases
-alias d='docker '
-alias c=' container '
-alias b=' build '
-alias i=' image '
-alias r=' run '
-alias l=' logs '
-alias e=' exec '
-alias dc='docker-compose '
+alias dd='docker'
+alias dc='docker container'
+alias db='docker build '
+alias di='docker image '
+alias dr='docker run '
+alias dl='docker logs '
+alias de='docker exec '
+
+# kubernetes aliases
+alias kk='sudo kubectl'
+alias kubectl='sudo kubectl'
+alias kp='sudo kubectl get pods'
+alias kn='sudo kubectl get nodes'
+alias kd='sudo kubectl get deployments'
+alias ks='sudo kubectl get services'
+alias kl='sudo kubectl logs'
+alias ke='sudo kubectl exec'
+# SDK Man replaced GVM. Using for Groovy, Gradle, and Maven Version Management
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
