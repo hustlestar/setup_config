@@ -80,14 +80,13 @@ alias hist="history | tail -n 30" # last 30 commands in history
 alias untar="tar -xvzf" # extracts .tgz archive
 
 function shut_all_prcs() {
-    for pid in `ps -ux | grep -v color=auto | grep "$1"| awk '{print $2}'`; do kill -9 $pid; done
+    for pid in `ps -ux | grep -v | grep "$1"| awk '{print $2}'`; do kill -9 $pid; done
     echo "Killed all " $1 " processes"
 }
 alias shut="shut_all_prcs" # takes a process name as parameter
-alias grep='grep --color=auto'
-alias l.='ls -d .* --color=auto'
-alias ll='ls -l --color=auto'
-alias ls='ls --color=auto'
+alias l.='ls -d .*'
+alias ll='ls -l'
+alias ls='ls'
 
 # docker aliases
 alias dd='docker'
