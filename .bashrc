@@ -83,6 +83,10 @@ function shut_all_prcs() {
     for pid in `ps -ux | grep -v | grep "$1"| awk '{print $2}'`; do kill -9 $pid; done
     echo "Killed all " $1 " processes"
 }
+funcion pull_all() {
+    find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;
+}
+alias pr="pull_all"
 alias shut="shut_all_prcs" # takes a process name as parameter
 alias l.='ls -d .*'
 alias ll='ls -l'
@@ -106,6 +110,4 @@ alias kd='sudo kubectl get deployments'
 alias ks='sudo kubectl get services'
 alias kl='sudo kubectl logs'
 alias ke='sudo kubectl exec'
-# SDK Man replaced GVM. Using for Groovy, Gradle, and Maven Version Management
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
