@@ -91,6 +91,9 @@ alias shut="shut_all_prcs" # takes a process name as parameter
 alias l.='ls -d .*'
 alias ll='ls -l'
 alias ls='ls'
+alias hg='history | grep '
+alias cj='cd ~/JACK'
+alias cw='cd ~/WORK'
 
 # docker aliases
 alias dd='docker'
@@ -102,12 +105,16 @@ alias dl='docker logs '
 alias de='docker exec '
 
 # kubernetes aliases
-alias kk='sudo kubectl'
-alias kubectl='sudo kubectl'
-alias kp='sudo kubectl get pods'
-alias kn='sudo kubectl get nodes'
-alias kd='sudo kubectl get deployments'
-alias ks='sudo kubectl get services'
-alias kl='sudo kubectl logs'
-alias ke='sudo kubectl exec'
+alias kk='kubectl'
+alias kubectl='kubectl'
+alias kp='kubectl get pods'
+alias kn='kubectl get nodes'
+alias kd='kubectl get deployments'
+alias ks='kubectl get services'
+alias kl='kubectl logs'
+alias ke='kubectl exec'
 
+
+export PATH="/usr/local/anaconda3/bin:$PATH"
+
+export PATH="/usr/local/opt/sphinx-doc/bin:$PATH"
