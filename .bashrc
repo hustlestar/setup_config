@@ -113,8 +113,16 @@ alias kd='kubectl get deployments'
 alias ks='kubectl get services'
 alias kl='kubectl logs'
 alias ke='kubectl exec'
+alias kc='kubectl config'
+alias kccc='kubectl config current-context'
+alias kcgc='kubectl config get-contexts'
+alias kcuc='kubectl config use-context'
 
 
 export PATH="/usr/local/anaconda3/bin:$PATH"
-
 export PATH="/usr/local/opt/sphinx-doc/bin:$PATH"
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home
+export SPARK_HOME=/Users/yauhenim/SOFT/spark-2.4.5-bin-hadoop2.7
+export SCALA_HOME=/usr/local/Cellar/scala/2.13.1
+export PYTHONPATH=/usr/local/anaconda3/bin/python
+export PATH=$JAVA_HOME/bin:$SPARK_HOME:$SPARK_HOME/bin:$SPARK_HOME/sbin:$SCALA_HOME/bin:$SCALA_HOME/lib:$PATH
